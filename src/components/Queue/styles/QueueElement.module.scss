@@ -1,0 +1,20 @@
+@import "../../../styles/globals.scss";
+
+.queue-element {
+  box-sizing: border-box;
+
+  height: 100%;
+  width: 150px;
+
+  background-color: $accent-color;
+
+  border-radius: 10px;
+
+  margin-right: 0.3rem;
+  padding: 1rem;
+}
+
+.title {
+  overflow-wrap: break-word;
+  text-align: center;
+}

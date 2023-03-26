@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./styles/QueueElement.module.scss";
+import { isPropertySignature } from "typescript";
+import { limitStr } from "../../utils/helper-functions/limitStr";
 
-const QueueElement: React.FC = () => {
+const QueueElement: React.FC<{ title: string }> = (props) => {
   return (
-    <section className={styles["queue"]}>
-      <div className={styles["track"]}>
-        
-      </div>
-    </section>
+    <div className={styles["queue-element"]}>
+      <span className={styles["title"]}>{limitStr(props.title, 60)}</span>
+    </div>
   );
 };
 
