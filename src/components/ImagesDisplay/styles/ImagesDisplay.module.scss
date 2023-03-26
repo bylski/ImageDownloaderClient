@@ -1,0 +1,64 @@
+@import "../../../styles/globals.scss";
+
+.images-display {
+  display: flex;
+  max-width: 1600px;
+  width: 100%;
+  height: fit-content;
+
+  flex-direction: column;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.images-container {
+  display: grid;
+  width: 100%;
+  height: fit-content;
+
+
+
+  overflow-y: hidden;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+
+}
+
+.label {
+  height: fit-content;
+
+  display: block;
+  color: $base-color;
+
+  font-family: $main-font;
+  font-size: 18px;
+
+  margin-bottom: 0.5rem;
+}
+
+.refresh-btn {
+    width: 10rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+
+    color: $background-color;
+    background-color: $accent-color;
+  
+    font-family: $main-font;
+    text-align: center;
+  
+    border-radius: 100vw;
+    border: 3px solid transparent;
+  
+    transition: 0.2s ease-in-out;
+    backface-visibility: hidden;
+
+    &:hover {
+        cursor: pointer;
+        width: 11.2rem;
+        // height: 3.2rem;
+        // transform: scale(1.05);
+      }
+}

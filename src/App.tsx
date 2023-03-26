@@ -5,6 +5,7 @@ import InputBar from "./components/InputBar/InputBar";
 import Button from "./components/Button/Button";
 import Queue from "./components/Queue/Queue";
 import AppProvider from "./store/app-provider";
+import ImagesDisplay from "./components/ImagesDisplay/ImagesDisplay";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <InputBar />
         <Button />
         <Queue />
+        <ImagesDisplay />
       </main>
     </AppProvider>
   );

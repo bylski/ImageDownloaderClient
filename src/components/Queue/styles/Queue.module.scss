@@ -2,10 +2,14 @@
 
 
 .queue {
+    display: flex;
+    box-sizing: border-box;
     width: 100%;
-    // TEMPORARY!
-    height: 180px;
-    // background-color: black;
+    
+    flex-direction: column;
+    
+    min-height: 250px;
+    height: 250px;
 
 
 
@@ -13,6 +17,8 @@
 }
 
 .label {
+    height: fit-content;
+
     display: block;
     color: $base-color;
 
@@ -23,6 +29,7 @@
 }
 
 .track {
+    box-sizing: border-box;
     display: flex;
     width: 100%;
     height: 100%;
