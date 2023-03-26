@@ -1,0 +1,28 @@
+@import "../../../styles/globals.scss";
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  color: $base-color;
+
+  font-family: $main-font;
+  font-size: 3.5rem;
+  text-align: center;
+
+  margin: 0;
+
+  & span {
+    color: $accent-color;
+  }
+}
+
+.text {
+  color: $base-color;
+
+  font-family: $main-font;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 0;
+}
