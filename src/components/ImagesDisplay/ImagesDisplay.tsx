@@ -52,6 +52,7 @@ const ImagesDisplay: React.FC = () => {
     const { originUrl, storedUrl, dateAdded, dateUploaded } = image;
     return (
       <Image
+      key={`displayedImage${i}`}
         originUrl={originUrl}
         storedUrl={storedUrl}
         dateAdded={dateAdded}

@@ -4,7 +4,7 @@
   display: flex;
   max-width: 300px;
   width: auto;
-  height: 300px;
+  height: 350px;
 
   flex-direction: column;
   justify-self: center;
@@ -21,4 +21,36 @@
   height: 80%;
 
   object-fit: cover;
+}
+
+.image__info {
+  display: flex;
+  width: 100%;
+  min-height: 100px;
+
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+
+  padding-top: 0.5rem;
+
+  overflow-wrap: break-word;
+
+  & span {
+    width: 100%;
+    color: $background-color;
+    font-family: $secondary-font;
+    font-weight: 400;
+    font-size: 14px;
+    padding-inline: 0.7rem;
+  }
+
+  & a {
+    width: 100%;
+    color: $background-color;
+    font-family: $secondary-font;
+    font-weight: 400;
+    font-size: 14px;
+    padding-inline: 0.7rem;
+  }
 }
