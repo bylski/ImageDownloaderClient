@@ -13,7 +13,6 @@ function App() {
       <main className={styles["content"]}>
         <Header />
         <InputBar />
-        <Button />
         <Queue />
         <ImagesDisplay />
       </main>
