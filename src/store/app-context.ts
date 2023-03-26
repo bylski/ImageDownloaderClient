@@ -1,8 +1,9 @@
 import { createContext } from "react"
 
 type AppContextType = {
-   queueElements: Array<any>,
-   onAddToQueue(item: {title: string}): void,
+   queueElements: Array<{originURL: string, isUploadedURL: string, isUploaded: boolean}>,
+   onAddToQueue(item: {originURL: string, isUploadedURL: string, isUploaded: boolean}): void,
+   checkIfUploaded(isUploadedURL: string): Promise<{isImgUploaded: boolean}>,
   };
   
   const AppContext = createContext<AppContextType | null>(null);
