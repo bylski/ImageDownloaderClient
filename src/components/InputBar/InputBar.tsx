@@ -15,7 +15,15 @@ const InputBar: React.FC = () => {
     e.preventDefault();
 
     const sendImageForUpload = async () => {
-        const res = await fetch("http://localhost:8000/images", {
+      let apiAddress = "";
+      if (process.env.NODE_ENV === "development") {
+        apiAddress = process.env.REACT_APP_API_ADDRESS_DEV!;
+      } else {
+        apiAddress = process.env.REACT_APP_API_ADDRESS_PROD!;
+      }
+      const res = await fetch(
+        `${apiAddress}/images`,
+        {
           method: "POST",
           mode: "cors",
           headers: {
@@ -25,14 +33,16 @@ const InputBar: React.FC = () => {
           body: JSON.stringify({
             imageUrl: inputValue,
           }),
-        });
-        if (!res.ok) {
-          throw new Error(`[${res.status}] Failed to upload the image, invalid request (invalid URL?)`)
         }
+      );
+      if (!res.ok) {
+        throw new Error(
+          `[${res.status}] Failed to upload the image, invalid request (invalid URL?)`
+        );
+      }
 
-        const data = await res.json();
-        return data;
-     
+      const data = await res.json();
+      return data;
     };
     sendImageForUpload()
       .then((res) => {
@@ -43,7 +53,7 @@ const InputBar: React.FC = () => {
         });
       })
       .catch((e) => {
-        console.log(e.message)
+        console.log(e.message);
       });
   };
 
