@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import styles from "./styles/InputBar.module.scss";
 import Button from "../Button/Button";
 import { AppContext } from "../../store/app-context";
+import axios, { AxiosError} from "axios";
 
 const InputBar: React.FC = () => {
   const ctx = useContext(AppContext);
@@ -21,28 +22,24 @@ const InputBar: React.FC = () => {
       } else {
         apiAddress = process.env.REACT_APP_API_ADDRESS_PROD!;
       }
-      const res = await fetch(
-        `${apiAddress}/images`,
-        {
+      try {
+        const res = await axios(`${apiAddress}/images`, {
           method: "POST",
-          mode: "cors",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
+          data: JSON.stringify({
             imageUrl: inputValue,
           }),
-        }
-      );
-      if (!res.ok) {
+        });
+        const data = await res.data
+        return data;
+      } catch (e: any) {
         throw new Error(
-          `[${res.status}] Failed to upload the image, invalid request (invalid URL?)`
+          `[${e.code}] Failed to upload the image, invalid request (invalid URL?)`
         );
       }
-
-      const data = await res.json();
-      return data;
     };
     sendImageForUpload()
       .then((res) => {

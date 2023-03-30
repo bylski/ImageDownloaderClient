@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles/ImagesDisplay.module.scss";
 import Image from "./Image";
+import axios from "axios"
 
 const ImagesDisplay: React.FC = () => {
   const [imagesList, setImagesList] = useState<
@@ -22,15 +23,14 @@ const ImagesDisplay: React.FC = () => {
     } else {
       apiAddress = process.env.REACT_APP_API_ADDRESS_PROD!
     }
-    const res = await fetch(`${apiAddress}/images`, {
+    const res = await axios(`${apiAddress}/images`, {
       method: "GET",
-      mode: "cors",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     });
-    const data = await res.json();
+    const data = await res.data;
 
     return data as Array<{
       _id: string;

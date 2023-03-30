@@ -14,10 +14,11 @@ const QueueElement: React.FC<{
 }> = (props) => {
   const [isImageUploaded, setIsImageUploaded] = useState(props.isUploaded);
 
-  if (props.checkIfUploaded && props.checkIfUploaded !== undefined) {
-    setInterval(() => {
+  if (props.checkIfUploaded && props.checkIfUploaded !== undefined && !isImageUploaded) {
+    const isUploadedCheck = setInterval(() => {
       props.checkIfUploaded!(props.isUploadedURL).then((res) => {
         if (res.isImgUploaded) {
+          clearInterval(isUploadedCheck);
           setIsImageUploaded(true);
         }
       });
